@@ -86,6 +86,7 @@ def end_to_end_learning(model_name,
 
             # feed data to GPUs
             generated_batch = generated_batch.cuda()
+            generated_labels = generated_labels.cuda()
 
             # forward generated-batch
             rc_output, features, uncertainty = F(generated_batch)
