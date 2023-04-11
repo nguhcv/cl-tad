@@ -4,7 +4,7 @@ import numpy as np
 np.set_printoptions(threshold=np.inf)
 import torch
 import torch.nn as nn
-from framework.e2e_frameworks import e2e_framework
+from framework.e2e_framework import e2e_framework
 from framework.net_generator import net_generator
 
 
