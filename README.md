@@ -1,4 +1,4 @@
-# SF_TAD
+# SF_TAD (Self-Supervised Learning Framework for Time series Anomaly Detection)
 
 Pytorch implementation of SF_TAD framework for Time series anomaly detection
 
