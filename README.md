@@ -12,13 +12,13 @@ The recommended requirements for SF_TAD are specified as follows:
 - numpy==1.19.2
 - pandas==1.0.1
 - matplotlib==3.3.1
+
 The dependencies can be installed by:
 
-''''
 '''
 pip install -r requirements.txt
 '''
-''''
+
 
 ## How to train a model with SF_TAD:
 1. Run **main/main_train.py**
