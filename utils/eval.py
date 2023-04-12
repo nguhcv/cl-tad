@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import f1_score
+#from sklearn.metrics import f1_score
 
 def avg_euclidean(value_list,E=None,U=None, w=None, ):
     import torch.nn.functional as F
