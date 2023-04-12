@@ -34,6 +34,26 @@ Our framework is evaluated on 5 datasets:
   - 2D-Gestures: This dataset records X Y cordinate of hand gesture in a video
   - PSM: This data set collect internally from multiple application server nodes at eBay
 
+## Usage
+
+To train or evaluate SF_TAD on a dataset, run the following command:
+
+<div style="background-color: rgb(50, 50, 50);">
+  
+`` main.py -dataset <dataset_name> -ts_num <ts_num> -dataset_dim <dataset dimension> ....
+``
+  
+</div>
+
+Detailed descriptions of arguments can be get by 
+
+  <div style="background-color: rgb(50, 50, 50);">
+  
+`` main.py -h
+``
+  
+</div>
+
 ## How to train a model with SF_TAD:
 1. Run **main/main_train.py**
 2. Since we supported codes to train model, run one of them by seleting the dataset setting in main. Following image shows a example how to train ecg-dataset. (ts_num indicates ordinal number of the sub-dataset)
