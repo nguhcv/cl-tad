@@ -15,12 +15,9 @@ The recommended requirements for SF_TAD are specified as follows:
 
 The dependencies can be installed by:
 
-<div style="background-color: rgb(50, 50, 50);">
-
-``python
-print("Yo!")
+<div style="background-color: rgb(30, 70, 50);">
+`` pip install -r requirements.txt
 ``
-
 </div>
 
 
