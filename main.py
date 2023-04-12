@@ -97,8 +97,8 @@ if __name__ == '__main__':
     parser.add_argument('-dataset', default ='ecg', type=str, help='dataset-name')
     parser.add_argument('-dataset_dims', default=2,type= int, help= 'number of dimension of dataset')
     parser.add_argument('-ts_num', default=0, type=int)
-    parser.add_argument('-data_path', default='C:/Project/TSAD/data/ecg/', help='data-path')
-    parser.add_argument('-save_path', default='C:/Project/TSAD/saved_modules/e2e/',
+    parser.add_argument('-data_path', default='C:/Project/TSAD/data/ecg/', type=str, help='data-path')
+    parser.add_argument('-save_path', default='C:/Project/TSAD/saved_modules/e2e/', type=str,
                         help='save-data-path')
 
     # parser.add_argument('--dataset_dims', default=1,type= int, help= 'number of dimension of dataset')
