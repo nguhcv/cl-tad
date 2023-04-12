@@ -61,6 +61,16 @@ Detailed descriptions of arguments can be get by
 
 </div>
 
-## Guildine how to use our package
+## Guildine how to use our package on Window
+
+1. Use git bash to clone our project
+
+<div style="background-color: rgb(50, 50, 50);">
+
+`` main.py -h
+``
+
+</div>
+
 
 
