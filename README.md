@@ -24,6 +24,15 @@ The dependencies can be installed by:
   
 </div>
 
+## Dataset
+Our framework is evaluated on 5 datasets:
+- Univariate datasets:
+  - Power demand: This data set records the power demand in a year at a Dutch research facility 
+  - UCR : An anomaly detection benchmark is used in KDD-21 competition   
+- Multivariate datasets:
+  - ECG: This data set consists of 6 time series from electrocardiograms readings
+  - 2D-Gestures: This dataset records X Y cordinate of hand gesture in a video
+  - PSM: This data set collect internally from multiple application server nodes at eBay
 
 ## How to train a model with SF_TAD:
 1. Run **main/main_train.py**
