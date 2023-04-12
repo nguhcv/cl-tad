@@ -65,6 +65,6 @@ Detailed descriptions of arguments can be get by
 
 1. Use git bash to clone our project
 
-<img src="/image/git_clone.PNG" width ="500" >
+<img src="/image/git_clone.PNG" width ="400" >
 
 
