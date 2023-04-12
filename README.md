@@ -69,5 +69,5 @@ Detailed descriptions of arguments can be get by
 
 2. Using command line create the python environment:  
 
-<img src="/image/git_clone.PNG" width ="400" >
+<img src="/image/py_venv.PNG" width ="400" >
   
