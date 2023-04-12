@@ -67,7 +67,7 @@ Detailed descriptions of arguments can be get by
 
 <img src="/image/git_clone.PNG" width ="400" >
 
-2. Open the terminal at the directory that contains the cloned project:
-  2.1 Initialize the python environment
-  <img src="/image/git_clone.PNG" width ="400" >
+2. Using command line create the python environment:  
+
+<img src="/image/git_clone.PNG" width ="400" >
   
