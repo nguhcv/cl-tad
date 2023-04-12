@@ -38,28 +38,28 @@ Our framework is evaluated on 5 datasets:
 
 The following command illustrates how to train and test the ECG dataset with our framework:
 
-Train ECG-A sub-dataset:
-<div style="background-color: rgb(50, 50, 50);">
-  
-`` main.py -mode train -dataset ecg -ts_num 0 -dataset_dim 2 ....
-``  
-</div>
-
-Test ECG-A sub-dataset:
-<div style="background-color: rgb(50, 50, 50);">
-  
-`` main.py -mode test -dataset ecg -ts_num 0 -dataset_dim 2 ....
-``  
-</div>
-
-Detailed descriptions of arguments can be get by 
-
+  Train ECG-A sub-dataset:
   <div style="background-color: rgb(50, 50, 50);">
-  
-`` main.py -h
-``
-  
-</div>
+
+  `` main.py -mode train -dataset ecg -ts_num 0 -dataset_dim 2 ....
+  ``  
+  </div>
+
+  Test ECG-A sub-dataset:
+  <div style="background-color: rgb(50, 50, 50);">
+
+  `` main.py -mode test -dataset ecg -ts_num 0 -dataset_dim 2 ....
+  ``  
+  </div>
+
+  Detailed descriptions of arguments can be get by 
+
+    <div style="background-color: rgb(50, 50, 50);">
+
+  `` main.py -h
+  ``
+
+  </div>
 
 ## How to train a model with SF_TAD:
 1. Run **main/main_train.py**
