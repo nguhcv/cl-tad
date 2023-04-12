@@ -7,10 +7,10 @@ import torch
 
 class Dataset_Loader():
     def __init__(self, dataset, data_path,window_size, ts_num):
-        if dataset not in ['ecg', 'ucr', 'pd', 'gesture', 'credit', 'nab', 'kpi', 'psm', 'smd']:
-            raise ValueError ('this dataset is not supported')
-        else:
-            self.dataset = dataset
+#        if dataset not in ["'ecg'", 'ucr', 'pd', 'gesture', 'credit', 'nab', 'kpi', 'psm', 'smd']:
+#           raise ValueError ('this dataset is not supported')
+#        else:
+        self.dataset = dataset
 
         self.data_path = data_path
 
