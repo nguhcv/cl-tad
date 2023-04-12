@@ -8,7 +8,7 @@ Inspired by the success of the self-supervised learning (SSL) approach in variou
 
 ## SF_TAD framnework architecture
 
-
+<img src="/image/model.PNG" width ="400" >  <img src="/image/model2.PNG" width ="400" >
 
 ## Requirements
 The recommended requirements for SF_TAD are specified as follows:
