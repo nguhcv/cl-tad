@@ -10,6 +10,13 @@ Inspired by the success of the self-supervised learning (SSL) approach in variou
 
 <img src="/image/model.JPG" width ="600" align="center" >  
 
+- Enrich training data:
+  - Enrich training data by applying the masking technique on input samples
+- Reconstruction learning:
+  - reconstruct original input data from masked samples
+- Representation learning:
+  - representation learning by contrasting similar and dissimilar samples
+
 ## Requirements
 The recommended requirements for SF_TAD are specified as follows:
 - torch ==1.9.0
