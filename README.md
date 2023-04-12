@@ -81,3 +81,8 @@ Detailed descriptions of arguments can be get by
   
   - Training ECG-0
 <img src="/image/train_example.PNG" width ="400" >
+
+  - Testing ECG-0 (our trained model is stored in saved_modules directories)
+
+<img src="/image/test_example.PNG" width ="400" > 
+
