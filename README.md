@@ -71,9 +71,10 @@ Detailed descriptions of arguments can be get by
 
 <img src="/image/py_venv.PNG" width ="400" >
   
-3. Upgrade pip and install requirements
+3. Upgrade pip, install requirements and active py venv
 
 <img src="/image/pip_update.PNG" width ="400" >
 <img src="/image/install_requirements.PNG" width ="400" >
+<img src="/image/active_venv.PNG" width ="400" >
 
 
