@@ -74,3 +74,6 @@ Detailed descriptions of arguments can be get by
 3. Upgrade pip and install requirements
 
 <img src="/image/pip_update.PNG" width ="400" >
+<img src="/image/install_requirements.PNG" width ="400" >
+
+
