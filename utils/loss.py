@@ -4,7 +4,7 @@ import math
 import torch.nn.functional as F
 
 class OurContrastiveLoss(nn.Module):   # use only z(E,U)
-    def __init__(self, w_size, mode, tau=0.04,masking_factor=1.):
+    def __init__(self, w_size, mode, tau=0.05,masking_factor=1.):
         super(OurContrastiveLoss, self).__init__()
         self.tau = tau
         self.generated_sample = int(w_size * masking_factor)
