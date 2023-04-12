@@ -15,7 +15,13 @@ The recommended requirements for SF_TAD are specified as follows:
 
 The dependencies can be installed by:
 
-'''Highlighted text '''
+<div style="background-color: rgb(50, 50, 50);">
+
+``python
+print("Yo!")
+``
+
+</div>
 
 
 ## How to train a model with SF_TAD:
