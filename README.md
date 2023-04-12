@@ -6,7 +6,7 @@ Pytorch implementation of SF_TAD framework for Time series anomaly detection
 
 Inspired by the success of the self-supervised learning (SSL) approach in various tasks using unlabeled data and the powerful temporal convolution network (TCN) in temporal feature extraction, we propose a self-supervised-based learning framework for anomaly detection in the time series domain, called SF_TAD. The proposed framework combines three components: data enrichment, reconstruction learning, and contrastive learning. To overcome the data scarcity problem, the first component acts as a training data generator, generating a diverse and rich training dataset using a masking technique. The second component, inspired by the mask-prediction learning technique in SSL, consists of a reconstructor that aims to reconstruct the original input data from the output of the previous component. The last component, inspired by the contrastive learning technique in SSL, consists of a transformation module followed by an encoder. The primary goal of the last component is to distinguish outputs from the previous component. Experimental results on several datasets have shown that our solution achieves state-of-the-art performance. Our method has proven useful for anomaly detection tasks in the time series domain, particularly in real-world time series, where labeling is a time-consuming and challenging task.
 
-### Requirements
+## Requirements
 The recommended requirements for SF_TAD are specified as follows:
 - torch ==1.9.0
 - torchvision==0.10+cu111
