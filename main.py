@@ -9,7 +9,10 @@ from framework.net_generator import net_generator
 
 
 def main_app(opt):
-    print(opt)
+    dropout =0.5
+    
+    if opt.mode =='test':
+        dropout = 0.
 
     #initialize the net components
 
@@ -19,7 +22,7 @@ def main_app(opt):
                         n_dims=opt.dataset_dims,
                         r_channel_list=[128,128,128,128,128,128],
                         e_channel_list=[128,128,128,128,128,128],
-                        dropout=0.5,
+                        dropout=dropout,
                         activation='relu',
                         window_size=opt.w,
                         r_kernel_size_list=[3],
