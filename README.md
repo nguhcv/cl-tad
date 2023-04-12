@@ -65,12 +65,6 @@ Detailed descriptions of arguments can be get by
 
 1. Use git bash to clone our project
 
-<div style="background-color: rgb(50, 50, 50);">
-
-`` main.py -h
-``
-
-</div>
-
+![Image] /image/git_clone.png
 
 
