@@ -232,18 +232,19 @@ class e2e_framework():
 
                     score, precision, recall = F1_PA(groundtrue=self.dataset.dataset['test_label'],
                                                      predicted=anomalies_values, delay=delay)
-                    print(threshold_list[g],score,precision,recall)
+#                   print(threshold_list[g],score,precision,recall)
+                    print('F-score:' + str(score), 'Precision: ' + str(precision), 'Recall:' + str(recall))
 
                     if best_score[0]<=score:
                         best_score[0] = score
                         best_score[1] = precision
                         best_score[2] = recall
                     f1_list.append(score)
-                plt.plot(threshold_list,f1_list)
-                plt.xlabel(  r'threshold \Delta')
-                plt.ylabel('F1')
-                plt.title(self.ds_name)
-                plt.show()
+                #plt.plot(threshold_list,f1_list)
+                #plt.xlabel(  r'threshold \Delta')
+                #plt.ylabel('F1')
+                #plt.title(self.ds_name)
+                #plt.show()
                 return best_score
 
 
