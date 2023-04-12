@@ -46,20 +46,20 @@ The following command illustrates how to train and test the ECG dataset with our
   </div>
 
   Test ECG-A sub-dataset:
-  <div style="background-color: rgb(50, 50, 50);">
+    <div style="background-color: rgb(50, 50, 50);">
 
-  `` main.py -mode test -dataset ecg -ts_num 0 -dataset_dim 2 ....
-  ``  
-  </div>
+    `` main.py -mode test -dataset ecg -ts_num 0 -dataset_dim 2 ....
+    ``  
+    </div>
 
   Detailed descriptions of arguments can be get by 
 
     <div style="background-color: rgb(50, 50, 50);">
 
-  `` main.py -h
-  ``
+    `` main.py -h
+    ``
 
-  </div>
+    </div>
 
 ## How to train a model with SF_TAD:
 1. Run **main/main_train.py**
