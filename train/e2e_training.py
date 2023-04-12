@@ -25,7 +25,7 @@ def end_to_end_learning(model_name,
     if lars_option:
         optimizer = LARSWrapper(optimizer)
 
-    scheduler = LinearWarmupCosineAnnealingLR(optimizer, warmup_epochs=15, max_epochs=n_epochs)
+    scheduler = LinearWarmupCosineAnnealingLR(optimizer, warmup_epochs=10, max_epochs=3500)
 
 
 
