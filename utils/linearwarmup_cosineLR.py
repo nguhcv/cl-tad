@@ -8,37 +8,6 @@ from torch.optim.lr_scheduler import _LRScheduler
 
 
 class LinearWarmupCosineAnnealingLR(_LRScheduler):
-    """
-    Sets the learning rate of each parameter group to follow a linear warmup schedule
-    between warmup_start_lr and base_lr followed by a cosine annealing schedule between
-    base_lr and eta_min.
-    .. warning::
-        It is recommended to call :func:`.step()` for :class:`LinearWarmupCosineAnnealingLR`
-        after each iteration as calling it after each epoch will keep the starting lr at
-        warmup_start_lr for the first epoch which is 0 in most cases.
-    .. warning::
-        passing epoch to :func:`.step()` is being deprecated and comes with an EPOCH_DEPRECATION_WARNING.
-        It calls the :func:`_get_closed_form_lr()` method for this scheduler instead of
-        :func:`get_lr()`. Though this does not change the behavior of the scheduler, when passing
-        epoch param to :func:`.step()`, the user should call the :func:`.step()` function before calling
-        train and validation methods.
-    Example:
-        >>> layer = nn.Linear(10, 1)
-        >>> optimizer = Adam(layer.parameters(), lr=0.02)
-        >>> scheduler = LinearWarmupCosineAnnealingLR(optimizer, warmup_epochs=10, max_epochs=40)
-        >>> #
-        >>> # the default case
-        >>> for epoch in range(40):
-        ...     # train(...)
-        ...     # validate(...)
-        ...     scheduler.step()
-        >>> #
-        >>> # passing epoch param case
-        >>> for epoch in range(40):
-        ...     scheduler.step(epoch)
-        ...     # train(...)
-        ...     # validate(...)
-    """
 
     def __init__(
         self,
