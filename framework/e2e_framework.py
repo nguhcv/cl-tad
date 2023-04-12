@@ -239,7 +239,8 @@ class e2e_framework():
                         best_score[0] = score
                         best_score[1] = precision
                         best_score[2] = recall
-                    f1_list.append(score)
+                        print(' New F-score:' + str(score), 'New Precision: ' + str(precision), 'New Recall:' + str(recall))
+                    #f1_list.append(score)
                 #plt.plot(threshold_list,f1_list)
                 #plt.xlabel(  r'threshold \Delta')
                 #plt.ylabel('F1')
