@@ -3,14 +3,14 @@ import numpy as np
 from utils.mask import sequence_order_position, masked_batch_generation_modified
 from utils.eval import euclidean,euclidean_testing, avg_euclidean
 import matplotlib.pyplot as plt
-# import matplotlib.pyplot as plt
-import scipy.stats as st
-import scipy
+#import matplotlib.pyplot as plt
+#import scipy.stats as st
+#import scipy
 import math
-from scipy.optimize import curve_fit
-import seaborn as sns
-from scipy.stats import norm
-from fitter import Fitter, get_distributions
+#from scipy.optimize import curve_fit
+#import seaborn as sns
+#from scipy.stats import norm
+#from fitter import Fitter, get_distributions
 
 def Gauss(data,alpha, mean, sigma):
     return alpha*np.exp(-(data - mean)**2/(2*sigma**2))
