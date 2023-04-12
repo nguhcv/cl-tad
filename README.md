@@ -77,4 +77,7 @@ Detailed descriptions of arguments can be get by
 <img src="/image/install_requirements.PNG" width ="400" >
 <img src="/image/active_venv.PNG" width ="400" >
 
-
+4. Comeback to project directory, run main for training or testing available trained models
+  
+  - Training ECG-0
+<img src="/image/train_example.PNG" width ="400" >
