@@ -16,7 +16,7 @@ The recommended requirements for SF_TAD are specified as follows:
 The dependencies can be installed by:
 
 '''
-pip install -r requirements.txt
+<mark>pip install -r requirements.txt</mark>
 '''
 
 
