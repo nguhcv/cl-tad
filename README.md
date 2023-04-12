@@ -61,7 +61,7 @@ Detailed descriptions of arguments can be get by
 
 </div>
 
-## Guildine how to use our package on Window
+## Guideline how to use our package on Window
 
 1. Use git bash to clone our project
 
