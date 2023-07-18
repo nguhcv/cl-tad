@@ -7,10 +7,10 @@ import torch
 
 class Dataset_Loader():
     def __init__(self, dataset, data_path,window_size, ts_num):
-#        if dataset not in ["'ecg'", 'ucr', 'pd', 'gesture', 'credit', 'nab', 'kpi', 'psm', 'smd']:
-#           raise ValueError ('this dataset is not supported')
-#        else:
-        self.dataset = dataset
+        if dataset not in ['ecg', 'ucr', 'pd', 'gesture', 'credit', 'nab', 'kpi', 'psm', 'smd', 'msds', 'smap_msl_','swat', 'wadi']:
+            raise ValueError ('this dataset is not supported')
+        else:
+            self.dataset = dataset
 
         self.data_path = data_path
 
@@ -20,6 +20,10 @@ class Dataset_Loader():
 
         if self.dataset =='ucr':
             self.ucr_dataset_name=['135_', '136_', '137_', '138_']
+            self.ts_num = ts_num
+
+        if self.dataset =='smap_msl_':
+            self.smap_msl_dataset_name=['A-4_', 'C-2_', 'T-1_','C-1_']
             self.ts_num = ts_num
 
         if self.dataset =='smd':
@@ -62,8 +66,20 @@ class Dataset_Loader():
         elif self.dataset =='psm':
             self.dataset = get_PSM_dataset(data_path=self.data_path, normalized=True)
 
+        elif self.dataset =='swat':
+            self.dataset = get_SWaT_dataset(data_path=self.data_path, normalized=True)
+
+        elif self.dataset =='wadi':
+            self.dataset = get_WADI_dataset(data_path=self.data_path, normalized=True)
+
+        elif self.dataset =='msds':
+            self.dataset = get_MSDS_dataset(data_path=self.data_path, normalized=True)
+
         elif self.dataset =='smd':
             self.dataset = get_SMD_dataset(data_path=self.data_path, ts_num=self.ts_num, normalized=True, dataset_name=self.smd_dataset_name)
+
+        elif self.dataset =='smap_msl_':
+            self.dataset = get_SMAP_MSL_dataset(data_path=self.data_path, ts_num=self.ts_num, normalized=True, dataset_name=self.smap_msl_dataset_name)
 
     def __sliding_window_generation(self,window_size):
             # self.train_set, self.test_set, self.validation_set = sliding_window_generation(dataset=self.dataset, window_size=window_size)
@@ -136,10 +152,102 @@ class Dataset_Loader():
             plt.title(str(data_type)+ ' label')
             plt.show()
 
-
+    def statistics(self):
+        if isinstance (self.dataset['test_label'], np.ndarray):
+            label = list(self.dataset['test_label'])
+            n_anomalies = label.count(1)
+        else: n_anomalies = self.dataset['test_label'].count(1)
+        perent_anomalies = n_anomalies/len(self.dataset['test_label'])
+        return self.dataset['train_data'].shape, self.dataset['test_data'].shape, perent_anomalies
+        pass
 
 
         #plot val data
+
+
+
+
+def get_WADI_dataset(data_path, normalized = True):
+
+    dataset = {}
+    file_list = os.listdir(data_path)
+
+    for file_name in file_list:
+
+        if file_name.endswith('train_10.npy'):
+            train_data = np.load(data_path + file_name)
+            train_data = train_data.T
+            print(train_data.shape)
+
+            dataset = {**dataset, 'train_data': train_data}
+
+        elif file_name.endswith('test_10.npy'):
+            test_data = np.load(data_path + file_name)
+            test_data = test_data.T
+            print(test_data.shape)
+            dataset = {**dataset, 'test_data': test_data}
+
+        elif file_name.endswith('labels_10.npy'):
+            label = np.load(data_path + file_name)
+            label = label.flatten()
+            dataset = {**dataset, 'test_label': label}
+
+    if normalized:
+        max_val = np.nanmax(dataset['train_data'])
+        min_val = np.nanmin(dataset['train_data'])
+
+        for dim in range(dataset['train_data'].shape[0]):
+            for i in range(dataset['train_data'].shape[1]):
+                if dataset['train_data'][dim][i] != np.nan:
+                    dataset['train_data'][dim][i] = ((dataset['train_data'][dim][i] - min_val) / (max_val - min_val))
+
+            for j in range(dataset['test_data'].shape[1]):
+                if dataset['test_data'][dim][j] != np.nan:
+                    dataset['test_data'][dim][j] = ((dataset['test_data'][dim][j] - min_val) / (max_val - min_val))
+    return dataset
+
+
+
+
+def get_SWaT_dataset(data_path, normalized = True):
+
+    dataset = {}
+    file_list = os.listdir(data_path)
+
+    for file_name in file_list:
+
+        if file_name.endswith('train_10.npy'):
+            train_data = np.load(data_path + file_name)
+            train_data = train_data.T
+            print(train_data.shape)
+
+            dataset = {**dataset, 'train_data': train_data}
+
+        elif file_name.endswith('test_10.npy'):
+            test_data = np.load(data_path + file_name)
+            test_data = test_data.T
+            print(test_data.shape)
+            dataset = {**dataset, 'test_data': test_data}
+
+        elif file_name.endswith('labels_10.npy'):
+            label = np.load(data_path + file_name)
+            label = label.flatten()
+            dataset = {**dataset, 'test_label': label}
+
+    if normalized:
+        max_val = np.nanmax(dataset['train_data'])
+        min_val = np.nanmin(dataset['train_data'])
+
+        for dim in range(dataset['train_data'].shape[0]):
+            for i in range(dataset['train_data'].shape[1]):
+                if dataset['train_data'][dim][i] != np.nan:
+                    dataset['train_data'][dim][i] = ((dataset['train_data'][dim][i] - min_val) / (max_val - min_val))
+
+            for j in range(dataset['test_data'].shape[1]):
+                if dataset['test_data'][dim][j] != np.nan:
+                    dataset['test_data'][dim][j] = ((dataset['test_data'][dim][j] - min_val) / (max_val - min_val))
+    return dataset
+
 
 
 
@@ -163,6 +271,7 @@ def get_SMD_dataset(data_path,ts_num,dataset_name, normalized = True):
 
     dataset = {}
     file_list = os.listdir(data_path)
+
     for file_name in file_list:
         if file_name.startswith(dataset_name[ts_num]):
             if file_name.endswith('train.npy'):
@@ -203,6 +312,52 @@ def get_SMD_dataset(data_path,ts_num,dataset_name, normalized = True):
                     dataset['test_data'][dim][j] = ((dataset['test_data'][dim][j] - min_val) / (max_val - min_val))
     return dataset
 
+
+def get_SMAP_MSL_dataset(data_path,ts_num,dataset_name, normalized = True):
+
+    dataset = {}
+    file_list = os.listdir(data_path)
+    print('here')
+
+    for file_name in file_list:
+        if file_name.startswith(dataset_name[ts_num]):
+            if file_name.endswith('train.npy'):
+                train_data = np.load(data_path + file_name)
+                train_data = train_data.T
+                print(train_data.shape)
+
+                dataset = {**dataset, 'train_data': train_data}
+
+            elif file_name.endswith('test.npy'):
+                test_data = np.load(data_path + file_name)
+                test_data = test_data.T
+                print(test_data.shape)
+                dataset = {**dataset, 'test_data': test_data}
+
+            elif file_name.endswith('labels.npy'):
+                label = np.load(data_path + file_name)
+                print(label.shape)
+                labels = []
+                for i in range(label.shape[0]):
+                    if 1. in label[i]:
+                        labels.append(1.)
+                    else:
+                        labels.append(0.)
+                dataset = {**dataset, 'test_label': labels}
+
+    if normalized:
+        max_val = np.nanmax(dataset['train_data'])
+        min_val = np.nanmin(dataset['train_data'])
+
+        for dim in range(dataset['train_data'].shape[0]):
+            for i in range(dataset['train_data'].shape[1]):
+                if dataset['train_data'][dim][i] != np.nan:
+                    dataset['train_data'][dim][i] = ((dataset['train_data'][dim][i] - min_val) / (max_val - min_val))
+
+            for j in range(dataset['test_data'].shape[1]):
+                if dataset['test_data'][dim][j] != np.nan:
+                    dataset['test_data'][dim][j] = ((dataset['test_data'][dim][j] - min_val) / (max_val - min_val))
+    return dataset
 
 
 def get_PSM_dataset(data_path, normalized = True):
@@ -251,7 +406,72 @@ def get_PSM_dataset(data_path, normalized = True):
                }
     return dataset
 
+def normalize3(a, min_a = None, max_a = None):
+	if min_a is None: min_a, max_a = np.min(a, axis = 0), np.max(a, axis = 0)
+	return (a - min_a) / (max_a - min_a + 0.0001), min_a, max_a
 
+def get_MSDS_dataset(data_path, normalized = True):
+    #
+    folder = data_path
+    dataset_folder = data_path
+    df_train = pd.read_csv(os.path.join(dataset_folder, 'train.csv'))
+    df_test = pd.read_csv(os.path.join(dataset_folder, 'test.csv'))
+    df_train, df_test = df_train.values[::5, 1:], df_test.values[::5, 1:]
+    _, min_a, max_a = normalize3(np.concatenate((df_train, df_test), axis=0))
+    train, _, _ = normalize3(df_train, min_a, max_a)
+    test, _, _ = normalize3(df_test, min_a, max_a)
+    labels = pd.read_csv(os.path.join(dataset_folder, 'labels.csv'))
+    labels = labels.values[::1, 1:]
+    for file in ['train', 'test', 'labels']:
+        np.save(os.path.join(folder, f'{file}.npy'), eval(file).astype('float64'))
+    dataset = {}
+    file_list = os.listdir(data_path)
+    for file_name in file_list:
+        if file_name.endswith('train.npy'):
+            train_data = np.load(data_path + file_name)
+            train_data = train_data.T
+            print('train shape')
+            print(train_data.shape)
+
+            breakpoint()
+
+            dataset = {**dataset, 'train_data': train_data}
+
+        elif file_name.endswith('test.npy'):
+            test_data = np.load(data_path + file_name)
+            test_data = test_data.T
+            print('test shape')
+            print(test_data.shape)
+            dataset = {**dataset, 'test_data': test_data}
+
+        elif file_name.endswith('labels.npy'):
+            label = np.load(data_path + file_name)
+            print('label shape')
+
+            print(label.shape)
+            labels = []
+            for i in range(label.shape[0]):
+                if 1. in label[i]:
+                    labels.append(1.)
+                else:
+                    labels.append(0.)
+            dataset = {**dataset, 'test_label': labels}
+
+    if normalized:
+        max_val = np.nanmax(dataset['train_data'])
+        min_val = np.nanmin(dataset['train_data'])
+
+        for dim in range(dataset['train_data'].shape[0]):
+            for i in range(dataset['train_data'].shape[1]):
+                if dataset['train_data'][dim][i] != np.nan:
+                    dataset['train_data'][dim][i] = (
+                            (dataset['train_data'][dim][i] - min_val) / (max_val - min_val))
+
+            for j in range(dataset['test_data'].shape[1]):
+                if dataset['test_data'][dim][j] != np.nan:
+                    dataset['test_data'][dim][j] = ((dataset['test_data'][dim][j] - min_val) / (max_val - min_val))
+
+    return dataset
 
 def get_UCR_dataset(data_path,dataset_name,ts_num, normalized = True):
     dataset = {}
