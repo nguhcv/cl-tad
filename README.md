@@ -4,18 +4,11 @@ Pytorch implementation of CL-TAD Model for Time series anomaly detection
 
 ## Abstract
 
-Anomaly detection has gained significant attention in recent years, but detecting anomalies in the time-series domain remains challenging due to temporal dynamics, label scarcity, and data diversity in real-world applications. To address these challenges, we propose CL-TAD, a new contrastive learning-based model for anomaly detection in time series data. Inspired by the success of reconstruction learning techniques and contrastive learning methods, our model aims to leverage these approaches for time series anomaly detection. The CL-TAD consists of two main components: positive sample generation and contrastive learning. The first component generates positive samples by reconstructing the original data from masked samples. These positive samples, along with the original data, serve as input for the second component, which employs contrastive learning to detect anomalies. Experimental results on benchmark datasets demonstrate that our proposed solution achieves state-of-the-art performance on five datasets from various applications. Additionally, our model exhibits excellent performance even with limited training datasets. Moreover, by applying an online testing strategy, our model is well-suited for real-time applications that require quick decision-making. By combining reconstruction learning and contrastive learning techniques, our CL-TAD model offers a promising solution for effectively detecting anomalies in time series data, providing accurate results, and addressing the challenges posed by label scarcity, and the data diversity.
+Anomaly detection has gained significant attention in recent years, but detecting anomalies in the time-series domain remains challenging due to temporal dynamics, label scarcity, and data diversity in real-world applications. To address these challenges, we introduce a novel method for anomaly detection in time-series data, called CL-TAD (Contrastive Learning-based model for Times series Anomaly Detection), which employs contrastive learning technique. Inspired by the successes of reconstruction learning approaches and contrastive learning approaches, the proposed method seeks to leverage these approaches for time series anomaly detection. The CL-TAD method is comprised of two main components: positive sample generation and contrastive learning. The former component generates positive samples by trying to reconstruct the original data from masked samples. These positive samples, in conjunction with the original data, serve as input for the contrastive learning component, which works to detect anomalies. Experimental results on benchmark datasets have demonstrated that the CL-TAD method achieves state-of-the-art performance on five datasets out of nine benchmark datasets. In addition, the method performs well even when training data is limited. By applying an online testing strategy, the method is effective for real-time applications requiring swift decision-making. By leveraging reconstruction learning and contrastive learning techniques, the CL-TAD method  offers a promising solution for effectively detecting anomalies in time series data, by handling the issues raised by label scarcity and the data diversity, delivering high performance.
 
 ## SF_TAD framework architecture
 
 <img src="/image/overall_framework.png" width ="600" align="center" >  
-
-- Enrich training data:
-  - Enrich training data by applying the masking technique on input samples
-- Reconstruction learning:
-  - reconstruct original input data from masked samples
-- Representation learning:
-  - representation learning by contrasting similar and dissimilar samples
 
 ## Requirements
 The recommended requirements for SF_TAD are specified as follows:
