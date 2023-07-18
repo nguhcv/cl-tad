@@ -8,7 +8,7 @@ Anomaly detection has gained significant attention in recent years, but detectin
 
 ## SF_TAD framework architecture
 
-<img src="/image/model.JPG" width ="600" align="center" >  
+<img src="/image/overall_framework.png" width ="600" align="center" >  
 
 - Enrich training data:
   - Enrich training data by applying the masking technique on input samples
